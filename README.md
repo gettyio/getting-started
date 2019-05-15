@@ -81,6 +81,6 @@ TODO: how to build a reusable amplify (framework) deployment pipeline for Circle
 
 TODO: how to build a reusable cloudformation (aws-cli) deployment pipeline for CircleCI.
 
-#### Dockerizing
+##### Dockerizing
 
 TODO: how to construct a Dockerfile that is populated by already built packages and binaries.
