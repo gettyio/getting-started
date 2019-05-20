@@ -1,0 +1,17 @@
+---
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+
+    steps:
+      - checkout
+      
+      # downloads dependencies
+      - run: |
+          yarn
+          yarn global add typescript
+      
+      # build distribution folder
+      - run: yarn build
