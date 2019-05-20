@@ -139,3 +139,46 @@ a first thought is that this will do to have a working workflow with build and t
 as data is not persistent, caching will make this bridge between `build` when necessary, like this, you don't need to download dependencies or rebuild distributions all over again. As for the code, it could be cached also, but for small repositories, checking out again will do just fine.
 
 the whole code is available at [common/caching.yml](common/caching.yml)
+
+#### Dockerizing
+
+Running code in a container is a very common feature and your node application can be easily dockerized with a commited Dockerfile, in the root of the repository would be our case:
+```
+# Dockerfile
+FROM node:10
+
+USER node
+
+WORKDIR /home/node/repo
+
+COPY --chown=node:node package.json ./
+COPY --chown=node:node node_modules/ ./node_modules
+COPY --chown=node:node build/ ./build
+
+CMD yarn start
+```
+
+and with building and testing taken cared of, we can only care about using previously generated build and dependencies from cache and build our image:
+
+```
+  ...
+  docker-build-push:
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+
+      # build and push docker image
+      - run: |
+          export OWNER_NAME="gettyio"
+          export PROJECT_NAME="myproject"
+          docker login -u $DOCKER_LOGIN -p $DOCKER_PWD
+          docker build . --tag $OWNER_NAME/$PROJECT_NAME:$CIRCLE_SHA1
+          docker push $OWNER_NAME/$PROJECT_NAME:$CIRCLE_SHA1
+
+workflows:
+...
+```
+
+the whole code is available at [common/docker.yml](common/docker.yml)
