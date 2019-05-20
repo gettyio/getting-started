@@ -38,13 +38,9 @@ as i named it `build` and my current branch is `development`, the local executio
 #### Workflow
 
 Workflows will help you organize your jobs into flows to attend your needs, we've tried to list some of our known cases like:
+- building
 - linting and testing
-  - auxiliary services
-    - mongodb
-    - sqs
 - deploying
-  - backend (EKS)
-  - frontend (CloudFront)
 
 Workflows can have multiple features enabled to best attend your needs, from basic to more complex cases:
 
