@@ -30,7 +30,7 @@ jobs:
       - save_cache:
           paths:
             - build
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1-dist-{{ checksum "package.json" }}
   
   test:
     docker:
@@ -55,6 +55,16 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+
+      # tries to restore dependencies folder from cache
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+
+      # tries to restore distribution folder from cache
+      - restore_cache:
+          keys:
+          - v1-dist-{{ checksum "package.json" }}
 
       # build and push docker image
       - run: |
