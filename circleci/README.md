@@ -35,6 +35,10 @@ as i named it `build` and my current branch is `development`, the local executio
 
 `$ circleci local execute --branch development --job build`
 
+#### Platform
+
+to set up your repository on CircleCI is pretty straightforward, with the right permission (the creator, normally the one who sets up have admin rights on the repo) go to the left-menu _Add Projects_ and click on the right placed button and click on _Set Up Project_ and then on Step 2, on _Start Building_, that's it, your pipeline will start.
+
 #### Workflow
 
 Workflows will help you organize your jobs into flows to attend your needs, we've tried to list some of our known cases like:
