@@ -117,6 +117,11 @@ workflows:
 a first thought is that this will do to have a working workflow with build and testing for your code delivering to be neat, but acctually, there are two missing things for us to succeed, checking out code, and caching depencies, because without them there is no code or tools to test for, so:
 ```
       ...
+      # downloads dependencies
+      - run: |
+          yarn
+          yarn global add typescript
+
       # tries to save dependencies folder to cache
       - save_cache:
           paths:
