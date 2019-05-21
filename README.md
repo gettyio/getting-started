@@ -41,31 +41,19 @@ A good way to not go crazy when the services grow on management is to automate r
 
 ##### Getting Started
 
-##### Setup
+1. [Local: How to setup circleci local cli](circleci/README.md#local-circleci-cli)
 
-1. Platform
+2. [First Job: Develop your first job and test it locally](circleci/README.md#first-job
 
-TODO: How to setup a repo in CircleCI.
+3. [Workflows: How your pipeline will behave](circleci/README.md#workflow)
 
-2. Local
+4. [Platform: How to setup a repo in CircleCI](circleci/README.md#platform)
 
-TODO: How to setup circleci local cli.
+5. [Caching: How to share data between jobs](circleci/README.md#caching)
 
-3. First Job
+6. [Docker: How to dockerize your application](circleci/README.md#dockerizing)
 
-TODO: Develop your first job and test it locally.
-
-4. External Dependencies
-
-TODO: emulate a external dependency service.
-
-##### Workflows
-
-TODO: how to build an workflow that differs deployment environments by branches.
-
-##### Caching
-
-TODO: how to share runtime caching between jobs by saving and restoring circleci caching service.
+7. [External Dependencies: How emulate a external dependency service](circleci/README.md#external-dependencies)
 
 ##### AWS
 
